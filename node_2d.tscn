@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cbip0bv3vp1q8"]
+
+[ext_resource type="PackedScene" uid="uid://ctv1aee6vfv5x" path="res://character_body_2d.tscn" id="1_wtcfe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j8i8p"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_d21ai"]
+
+[sub_resource type="Gradient" id="Gradient_wtcfe"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s8vvp"]
+gradient = SubResource("Gradient_wtcfe")
+
+[node name="Node2D" type="Node2D" unique_id=855973818]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1957370201]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1513253552]
+shape = SubResource("CircleShape2D_j8i8p")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D" unique_id=775686477]
+position = Vector2(-2.3841858e-07, -8.940697e-07)
+scale = Vector2(18, 16)
+mesh = SubResource("BoxMesh_d21ai")
+texture = SubResource("GradientTexture1D_s8vvp")
+
+[node name="CharacterBody2D" parent="." unique_id=529143001 instance=ExtResource("1_wtcfe")]
+position = Vector2(12, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1878111327]
