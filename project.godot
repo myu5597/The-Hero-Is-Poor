@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Heros Journey x FB Manager"
-run/main_scene="uid://cbip0bv3vp1q8"
+run/main_scene="uid://cyy3t4wjf5rwf"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*uid://dt5an5c2x5ik"
 
 [display]
 
@@ -40,3 +44,4 @@ move_right={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+textures/vram_compression/import_etc2_astc=true
