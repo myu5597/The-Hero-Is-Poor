@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://oy0pndhj2lqg"]
+
+[ext_resource type="Script" uid="uid://drv3433evtwt7" path="res://map.gd" id="1_c7s6e"]
+[ext_resource type="Texture2D" uid="uid://co7a1j8rw111n" path="res://icon.svg" id="2_wijl4"]
+
+[node name="Map" type="Control" unique_id=621221642]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c7s6e")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1151547348]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(5, 5)
+texture = ExtResource("2_wijl4")
+
+[node name="Cities" type="Node2D" parent="." unique_id=1454430656]
+
+[node name="Hometown" type="Button" parent="Cities" unique_id=1128282745]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 519.0
+offset_top = 494.0
+offset_right = 633.0
+offset_bottom = 592.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Hometown"
+
+[node name="Iron_Heights" type="Button" parent="Cities" unique_id=752747370]
+offset_left = 716.0
+offset_top = 183.0
+offset_right = 832.0
+offset_bottom = 282.0
+text = "Iron Heights"
+
+[node name="The_Citadel" type="Button" parent="Cities" unique_id=63331251]
+offset_left = 387.0
+offset_top = 102.0
+offset_right = 528.0
+offset_bottom = 233.0
+text = "The Citadel
+"
+
+[node name="InfoPanel" type="PanelContainer" parent="." unique_id=424115223]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -170.0
+offset_bottom = 85.0
+grow_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InfoPanel" unique_id=1561993273]
+layout_mode = 2
+
+[node name="CityLabel" type="Label" parent="InfoPanel/VBoxContainer" unique_id=1475911314]
+layout_mode = 2
+text = "Travel To Iron Heights"
+
+[node name="CostLabel" type="Label" parent="InfoPanel/VBoxContainer" unique_id=2040784667]
+layout_mode = 2
+text = "Cost 50g, 2 turns"
+
+[node name="TravelButton" type="Button" parent="InfoPanel/VBoxContainer" unique_id=1964676318]
+layout_mode = 2
+text = "Travel"
+
+[node name="BackButton" type="Button" parent="." unique_id=440720709]
+layout_mode = 1
+offset_right = 170.0
+offset_bottom = 85.0
+text = "back"
