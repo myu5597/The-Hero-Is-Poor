@@ -90,3 +90,44 @@ var shop_inventory = {
 		{"name": "Mage Robes",      "cost": 2000, "bonus": 0.20, "slot" : "armor"},
 	],
 }
+
+#------Energy System------
+var energy: int = 100
+const MAX_ENERGY: int = 100
+
+const ENERGY_DRAIN_SUCCESS: int = 10
+const ENERGY_DRAIN_FAIL: int = 25
+
+func get_energy_drain(success: bool) -> int:
+	# party members will reduce this later
+	if success:
+		return ENERGY_DRAIN_SUCCESS
+	else:
+		return ENERGY_DRAIN_FAIL
+		
+func can_do_quest(quest_index: int) -> bool:
+	var q = quests[current_city][quest_index]
+	if energy <= 0:
+		return false
+	# optionally block quests that would be attempted on 0 energy
+	return true
+	
+const ENERGY_REST_RECOVERY: int = 30  # per turn of rest
+const FORCED_REST_TURNS: int = 10
+
+var is_forced_resting: bool = false
+var forced_rest_turns_remaining: int = 0
+
+func rest(turns: int):
+	var actual_turns = min(turns, (MAX_ENERGY - energy) / ENERGY_REST_RECOVERY)
+	energy = min(energy + ENERGY_REST_RECOVERY * actual_turns, MAX_ENERGY)
+	threat += actual_turns
+	turn += actual_turns
+
+func check_exhaustion():
+	if energy <= 0:
+		energy = 0
+		is_forced_resting = true
+		forced_rest_turns_remaining = FORCED_REST_TURNS
+		threat += FORCED_REST_TURNS
+		turn += FORCED_REST_TURNS

@@ -34,6 +34,10 @@ layout_mode = 2
 [node name="BonusLabel" type="Label" parent="VBoxContainer/HUD" unique_id=1209522214]
 layout_mode = 2
 
+[node name="EnergyLabel" type="Label" parent="VBoxContainer/HUD" unique_id=742785889]
+layout_mode = 2
+text = "Energy"
+
 [node name="QuestButtons" type="HBoxContainer" parent="VBoxContainer" unique_id=1516699876]
 layout_mode = 2
 
@@ -55,11 +59,6 @@ layout_mode = 2
 text = "Open Map
 "
 
-[node name="EndTurnButton" type="Button" parent="VBoxContainer" unique_id=753623377]
-layout_mode = 2
-text = "End Turn
-"
-
 [node name="LogBox" type="RichTextLabel" parent="VBoxContainer" unique_id=1764014087]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
@@ -70,3 +69,19 @@ text = "Narrator
 [node name="ShopButton" type="Button" parent="VBoxContainer" unique_id=1285801984]
 layout_mode = 2
 text = "Shop"
+
+[node name="RestContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=493877325]
+layout_mode = 2
+
+[node name="RestButton" type="Button" parent="VBoxContainer/RestContainer" unique_id=1047794229]
+layout_mode = 2
+text = "Rest"
+
+[node name="RestSpinBox" type="SpinBox" parent="VBoxContainer/RestContainer" unique_id=1554606464]
+layout_mode = 2
+min_value = 1.0
+max_value = 20.0
+value = 1.0
+
+[node name="RestInfoLabel" type="Label" parent="VBoxContainer/RestContainer" unique_id=2123486339]
+layout_mode = 2
