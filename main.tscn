@@ -31,6 +31,9 @@ layout_mode = 2
 [node name="ThreatLabel" type="Label" parent="VBoxContainer/HUD" unique_id=313071195]
 layout_mode = 2
 
+[node name="BonusLabel" type="Label" parent="VBoxContainer/HUD" unique_id=1209522214]
+layout_mode = 2
+
 [node name="QuestButtons" type="HBoxContainer" parent="VBoxContainer" unique_id=1516699876]
 layout_mode = 2
 
@@ -63,3 +66,7 @@ layout_mode = 2
 bbcode_enabled = true
 text = "Narrator
 "
+
+[node name="ShopButton" type="Button" parent="VBoxContainer" unique_id=1285801984]
+layout_mode = 2
+text = "Shop"

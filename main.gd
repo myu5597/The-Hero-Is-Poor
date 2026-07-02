@@ -28,19 +28,24 @@ func _ready():
 	$VBoxContainer/QuestButtons/HardButton.pressed.connect(_on_quest.bind(2))
 	$VBoxContainer/EndTurnButton.pressed.connect(_on_end_turn)
 	$VBoxContainer/MapButton.pressed.connect(_on_open_map)
+	$VBoxContainer/ShopButton.pressed.connect(_on_open_shop)
 	update_quest_buttons()
 	update_hud()
+	check_game_over()
 	log_message("You are in %s. Choose a quest." % GameManager.current_city, "white")
 	
 	
-		
+func _on_open_shop():
+	get_tree().change_scene_to_file("res://shop.tscn")
+	
 func _on_quest(index: int):
 	var q = GameManager.quests[GameManager.current_city][index]
 	var roll = randf()
+	var effective_chance = min(q.success_chance + GameManager.get_success_bonus(), 0.95)
 	GameManager.turn += q.time_cost
-	GameManager.threat += q.time_cost * 5
+	GameManager.threat += q.time_cost * 1
 
-	if roll <= q.success_chance:
+	if roll <= effective_chance:
 		GameManager.gold += q.reward
 		log_message("[Turn %d] %s — SUCCESS → +%dg" % [GameManager.turn, q.name, q.reward], "green")
 	else:
@@ -51,7 +56,7 @@ func _on_quest(index: int):
 
 func _on_end_turn():
 	GameManager.turn += 1
-	GameManager.threat += 5
+	GameManager.threat += 1
 	log_message("--- Turn ended. Threat grows... ---", "orange")
 	update_hud()
 	check_game_over()
@@ -63,6 +68,7 @@ func update_hud():
 	$VBoxContainer/HUD/GoldLabel.text = "Gold: %d" % GameManager.gold
 	$VBoxContainer/HUD/TurnLabel.text = "Turn: %d | City: %s" % [GameManager.turn, GameManager.current_city]
 	$VBoxContainer/HUD/ThreatLabel.text = "Threat: %d / 100" % GameManager.threat
+	$VBoxContainer/HUD/BonusLabel.text = "Bonus: +%d%%" % int(GameManager.get_success_bonus() * 100)
 
 func check_game_over():
 	if GameManager.threat >= 100:
@@ -76,3 +82,4 @@ func check_game_over():
 func log_message(text: String, color: String):
 	var lg = $VBoxContainer/LogBox
 	lg.append_text("[color=%s]%s[/color]\n" % [color, text])
+	

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://xalf8mkvdrnq"]
+
+[ext_resource type="Script" uid="uid://dwjac54awl51q" path="res://shop.gd" id="1_viryw"]
+
+[node name="Shop" type="Control" unique_id=303880565]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_viryw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1942201367]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=1402557171]
+layout_mode = 2
+text = "Shop - Hometown"
+
+[node name="GoldLabel" type="Label" parent="VBoxContainer" unique_id=2143103398]
+layout_mode = 2
+text = "Gold: 500"
+
+[node name="BonusLabel" type="Label" parent="VBoxContainer" unique_id=979622059]
+layout_mode = 2
+text = "Current Bonus +0%"
+
+[node name="ItemList" type="VBoxContainer" parent="VBoxContainer" unique_id=94681407]
+layout_mode = 2
+
+[node name="OwnedLabel" type="Label" parent="VBoxContainer" unique_id=1112723710]
+layout_mode = 2
+text = "Owned: Rusty Sword, Leather Armor"
+
+[node name="BackButton" type="Button" parent="VBoxContainer" unique_id=1821754652]
+layout_mode = 2
+text = "Back"
