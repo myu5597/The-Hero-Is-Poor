@@ -1,6 +1,5 @@
-# Godot 4+ specific ignores
+# Godot-specific
 .godot/
-/android/
 *.translation
 
 # Mono/C# (ignore if you're using GDScript only)
@@ -11,3 +10,6 @@ mono_crash.*.json
 # OS junk
 .DS_Store
 Thumbs.db
+.exe
+.dmg
+.cfg
